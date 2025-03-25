@@ -16,78 +16,102 @@
     <div class="w3-top">
         <div class="w3-bar w3-white w3-card" id="myNavbar">
             <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
-            <!-- Right-sided navbar links -->
+            
+            <!-- Left-sided navbar links -->
             <div class="w3-left w3-hide-small">
-                <a href="#about" class="w3-bar-item w3-button">Appliances Repair</a>
-                <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Home Cleaning</a>
-                <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Vehicle Repair</a>
+    
+                <!-- Dropdown for Appliances Repair -->
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Appliances Repair <i class="fa fa-caret-down"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border w3-animate-opacity" style="z-index:2;">
+                        <a href="#mobile-repair" class="w3-bar-item w3-button">Mobile Repair</a>
+                        <a href="#ac-repair" class="w3-bar-item w3-button">AC Repair</a>
+                        <a href="#tv-repair" class="w3-bar-item w3-button">TV Repair</a>
+                        <a href="#washing-machine-repair" class="w3-bar-item w3-button">Washing Machine Repair</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Home Cleaning <i class="fa fa-caret-down"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border w3-animate-opacity" style="z-index:2;">
+                        <a href="#1bhk" class="w3-bar-item w3-button">1 BHK</a>
+                        <a href="#2bhk" class="w3-bar-item w3-button">2 BHK</a>
+                        <a href="#3bhk" class="w3-bar-item w3-button">3 BHK</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Vehicle Repair <i class="fa fa-caret-down"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border w3-animate-opacity" style="z-index:2;">
+                        <a href="#2w" class="w3-bar-item w3-button">2-Wheeler</a>
+                        <a href="#3w" class="w3-bar-item w3-button">3-Wheeler</a>
+                        <a href="#4w" class="w3-bar-item w3-button">4-Wheeler</a>
+                    </div>
+                </div>
+
                 <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Pickup & Drop</a>
             </div>
+    
+            <!-- Right-sided navbar links -->
             <div class="w3-right w3-hide-small">
                 <a href="login.html" class="w3-bar-item w3-button">Login/Sign Up</a> 
             </div>
-            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
+    
+            <!-- Hamburger Menu for Small Screens -->
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-            <i class="fa fa-bars"></i>
+                <i class="fa fa-bars"></i>
             </a>
         </div>
     </div>
-
+    
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Appliances Repair</a>
-        <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Home Cleaning</a>
-        <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Vehicle Repair</a>
+        
+        <!-- Dropdown for Appliances Repair in Sidebar -->
+        <button onclick="toggleDropdownAppliances()" class="w3-bar-item w3-button">Appliances Repair <i class="fa fa-caret-down"></i></button>
+        <div id="sidebarDropdown-appliances" class="w3-hide w3-white w3-card">
+            <a href="#mobile-repair" onclick="w3_close()" class="w3-bar-item w3-button">Mobile Repair</a>
+            <a href="#ac-repair" onclick="w3_close()" class="w3-bar-item w3-button">AC Repair</a>
+            <a href="#tv-repair" onclick="w3_close()" class="w3-bar-item w3-button">TV Repair</a>
+            <a href="#washing-machine-repair" onclick="w3_close()" class="w3-bar-item w3-button">Washing Machine Repair</a>
+        </div>
+        <button onclick="toggleDropdownHome()" class="w3-bar-item w3-button">Home Cleaning <i class="fa fa-caret-down"></i></button>
+        <div id="sidebarDropdown-home" class="w3-hide w3-white w3-card">
+            <a href="#1bhk" onclick="w3_close()" class="w3-bar-item w3-button">1 BHK</a>
+            <a href="#2bhk" onclick="w3_close()" class="w3-bar-item w3-button">2 BHK</a>
+            <a href="#3bhk" onclick="w3_close()" class="w3-bar-item w3-button">3 BHK</a>
+        </div>
+        <button onclick="toggleDropdownVehicle()" class="w3-bar-item w3-button">Vehicle Repair <i class="fa fa-caret-down"></i></button>
+        <div id="sidebarDropdown-vehicle" class="w3-hide w3-white w3-card">
+            <a href="#2w" onclick="w3_close()" class="w3-bar-item w3-button">2-Wheeler</a>
+            <a href="#3w" onclick="w3_close()" class="w3-bar-item w3-button">3-Wheeler</a>
+            <a href="#4w" onclick="w3_close()" class="w3-bar-item w3-button">4-Wheeler</a>
+        </div>
         <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Pickup & Drop</a>
         <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button">Login/Sign Up</a>
     </nav>
 
     <!-- Header with full-height image -->
      <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-        <div class="w3-container w3-padding-32">
-            <h2 class="w3-xxlarge w3-text-black">Home services at your doorstep</h2>
-        
-            <div class="w3-row-padding">
-                <!-- Left Side: Service Buttons -->
-                <div class="w3-col l6 m12 s12">
-                    <div class="w3-white w3-card w3-round-large w3-padding">
-                        <h3>What are you looking for?</h3>
-            
-                        <div class="w3-row">
-                            <button class="w3-button w3-white w3-hover-light-grey w3-round-large service-btn">
-                                <img src="/assets/clean.jpg" alt="Salon & Spa"> Appliances Repair
-                            </button>
-                            <button class="w3-button w3-white w3-hover-light-grey w3-round-large service-btn">
-                                <i class="fa-solid fa-broom fa-xl"></i> Home Cleaning
-                            </button>
-                            <button class="w3-button w3-white w3-hover-light-grey w3-round-large service-btn">
-                                <img src="/assets/clean.jpg" alt="AC Repair"> Vehicle Repair
-                            </button>
-                            <button class="w3-button w3-white w3-hover-light-grey w3-round-large service-btn">
-                                <img src="/assets/clean.jpg" alt="Pest Control"> Pickup & Drop Service
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            
-                <!-- Right Side: Image Grid -->
-                <div class="w3-col l6 m12 s12">
-                    <div class="w3-row-padding">
-                        <div class="w3-col l6 m6 s12">
-                            <img src="/assets/Customer-service-agent.jpg" alt="Service 1" class="w3-card grid-img">
-                            <img src="/assets/Customer-service-agent.jpg" alt="Service 2" class="w3-card grid-img">
-                        </div>
-                        <div class="w3-col l6 m6 s12">
-                            <img src="/assets/Customer-service-agent.jpg" alt="Service 3" class="w3-card grid-img">
-                            <img src="/assets/Customer-service-agent.jpg" alt="Service 4" class="w3-card grid-img">
-                        </div>
-                    </div>
-                </div>
+        <div class="w3-container">
+            <h2>Slideshow Indicators</h2>
+            <p>An example of using buttons to indicate how many slides there are in the slideshow, and which slide the user is currently viewing.</p>
+          </div>
+          
+          <div class="w3-content" style="max-width:800px">
+            <img class="mySlides" src="/assets/clean.jpg" style="width:100%">
+            <img class="mySlides" src="/assets/Customer-service-agent.jpg" style="width:100%">
+            <img class="mySlides" src="/assets/clean.jpg" style="width:100%">
+          </div>
+          
+          <div class="w3-center">
+            <div class="w3-section">
+              <button class="w3-button w3-light-grey" onclick="plusImageDivs(-1)">❮ Prev</button>
+              <button class="w3-button w3-light-grey" onclick="plusImageDivs(1)">Next ❯</button>
             </div>
-            
-        </div>
+            <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
+            <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
+            <button class="w3-button demo" onclick="currentDiv(3)">3</button> 
+          </div>
      </header>
 
     <!-- What are you looking for? -->
